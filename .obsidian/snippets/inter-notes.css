@@ -1,0 +1,36 @@
+/* Inter as primary font for notes */
+/* If you need web loading instead of local fonts, uncomment:
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*/
+
+:root {
+  --notes-font-size: 17px; /* 16–18px recommended */
+  --notes-line-height: 1.6; /* 1.55–1.65 recommended */
+  /* Align with common theme variables */
+  --font-text: Inter, -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif;
+  --font-interface: var(--font-text);
+  --font-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+body,
+.markdown-preview-view,
+.markdown-source-view,
+.cm-s-obsidian,
+.cm-editor,
+.cm-content {
+  font-family: var(--font-text) !important;
+  font-size: var(--notes-font-size) !important;
+  line-height: var(--notes-line-height) !important;
+}
+
+/***** Optional: refine code blocks and tables *****/
+.markdown-preview-view code,
+.cm-s-obsidian .cm-inline-code,
+code, pre, tt {
+  font-family: var(--font-monospace) !important;
+  font-size: 0.95em;
+}
+
+.markdown-preview-view table {
+  font-size: 0.98em;
+}

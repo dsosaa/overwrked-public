@@ -1,0 +1,208 @@
+/* file-explorer-unified.css - Merged from file-explorer-enhancements.css and folder-icons.css */
+
+/* Base navigation styling */
+.workspace-leaf-content .nav-files-container .tree-item-self {
+  line-height: 1.4;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Folder title styling */
+.nav-folder-title-content {
+  font-weight: 600;
+}
+
+.nav-folder.is-collapsed > .tree-item-self .nav-folder-title-content {
+  opacity: 0.85;
+}
+
+/* Color variables for folders */
+:root {
+  --nsxo-projects: #4f46e5;          /* indigo */
+  --programming-projects: #7e22ce;   /* purple */
+  --public: #16a34a;                 /* green */
+  --passwords: #dc2626;              /* red */
+  --python-learning: #f59e0b;        /* amber */
+  --tags: #06b6d4;                   /* cyan */
+  --templates: #f97316;              /* orange */
+  --todo: #10b981;                   /* teal */
+  --utilities: #64748b;              /* slate */
+}
+
+/* Unified icon and color system for specific folders */
+/* NSXO Projects */
+.tree-item-self[aria-label="NSXO Projects"] > .nav-folder-title,
+.tree-item-self[data-path$="/NSXO Projects"] > .nav-folder-title,
+.tree-item-self[data-path="NSXO Projects"] > .nav-folder-title {
+  color: var(--nsxo-projects) !important;
+}
+.tree-item-self[aria-label="NSXO Projects"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path$="/NSXO Projects"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path="NSXO Projects"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "📁";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+.tree-item-self[aria-label="NSXO Projects"] > .nav-folder-title::before,
+.tree-item-self[data-path$="/NSXO Projects"] > .nav-folder-title::before,
+.tree-item-self[data-path="NSXO Projects"] > .nav-folder-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 1.1em;
+  background: var(--nsxo-projects);
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+/* Programming Projects */
+.tree-item-self[aria-label="Programming Projects"] > .nav-folder-title,
+.tree-item-self[data-path$="/Programming Projects"] > .nav-folder-title,
+.tree-item-self[data-path="Programming Projects"] > .nav-folder-title {
+  color: var(--programming-projects) !important;
+}
+.tree-item-self[aria-label="Programming Projects"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path$="/Programming Projects"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path="Programming Projects"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "💻";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+.tree-item-self[aria-label="Programming Projects"] > .nav-folder-title::before,
+.tree-item-self[data-path$="/Programming Projects"] > .nav-folder-title::before,
+.tree-item-self[data-path="Programming Projects"] > .nav-folder-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 1.1em;
+  background: var(--programming-projects);
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+/* Python Learning */
+.tree-item-self[aria-label="Python Learning"] > .nav-folder-title,
+.tree-item-self[data-path$="/Python Learning"] > .nav-folder-title,
+.tree-item-self[data-path="Python Learning"] > .nav-folder-title {
+  color: var(--python-learning) !important;
+}
+.tree-item-self[aria-label="Python Learning"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path$="/Python Learning"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path="Python Learning"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "🐍";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+.tree-item-self[aria-label="Python Learning"] > .nav-folder-title::before,
+.tree-item-self[data-path$="/Python Learning"] > .nav-folder-title::before,
+.tree-item-self[data-path="Python Learning"] > .nav-folder-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 1.1em;
+  background: var(--python-learning);
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+/* Continue pattern for other specific folders... */
+/* Templates */
+.tree-item-self[aria-label="Templates"] > .nav-folder-title,
+.tree-item-self[data-path$="/Templates"] > .nav-folder-title,
+.tree-item-self[data-path="Templates"] > .nav-folder-title {
+  color: var(--templates) !important;
+}
+.tree-item-self[aria-label="Templates"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path$="/Templates"] > .nav-folder-title .nav-folder-title-content::before,
+.tree-item-self[data-path="Templates"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "📋";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+/* To Do */
+.tree-item-self[aria-label="To Do"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "✅";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+/* Public */
+.tree-item-self[aria-label="Public"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "🌐";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+/* Passwords */
+.tree-item-self[aria-label="Passwords"] > .nav-folder-title .nav-folder-title-content::before {
+  content: "🔐";
+  display: inline-block;
+  width: 16px;
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+/* File type icons */
+.nav-file-title[aria-label$=".md"] .nav-file-title-content::before { 
+  content: "📄 "; 
+  margin-right: 4px; 
+  font-size: 0.8em; 
+}
+
+.nav-file-title[aria-label$=".png"] .nav-file-title-content::before,
+.nav-file-title[aria-label$=".jpg"] .nav-file-title-content::before,
+.nav-file-title[aria-label$=".jpeg"] .nav-file-title-content::before { 
+  content: "🖼️ "; 
+  margin-right: 4px; 
+  font-size: 0.8em; 
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Special files */
+.nav-file-title[aria-label="Home.md"] .nav-file-title-content::before { 
+  content: "🏠 "; 
+  margin-right: 4px; 
+  font-size: 0.8em; 
+}
+
+.nav-file-title[aria-label="Home.md"] .nav-file-title-content {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* Daily notes */
+.nav-file-title[aria-label^="202"] .nav-file-title-content::before,
+.nav-file-title[aria-label^="201"] .nav-file-title-content::before { 
+  content: "📅 "; 
+  margin-right: 4px; 
+  font-size: 0.8em; 
+}
+
+.nav-file-title[aria-label^="202"] .nav-file-title-content,
+.nav-file-title[aria-label^="201"] .nav-file-title-content {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Active file emphasis */
+.nav-file.is-active .nav-file-title-content {
+  font-weight: 700;
+}
+
+/* Root file de-emphasis */
+.nav-folder.mod-root > .tree-item-children > .nav-file .nav-file-title-content {
+  opacity: 0.9;
+}

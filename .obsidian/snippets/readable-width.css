@@ -1,0 +1,6 @@
+/* readable-width.css */
+:root { --max-note-width: 72ch; }
+.markdown-source-view, .markdown-preview-view {
+  max-width: var(--max-note-width);
+  margin: 0 auto;
+}

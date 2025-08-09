@@ -1,0 +1,4 @@
+/* scrollbars-thin.css */
+* { scrollbar-width: thin; scrollbar-color: var(--text-muted) transparent; }
+*::-webkit-scrollbar { height: 8px; width: 8px; }
+*::-webkit-scrollbar-thumb { background: var(--background-modifier-border); border-radius: 8px; }

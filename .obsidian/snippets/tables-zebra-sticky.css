@@ -1,0 +1,5 @@
+/* tables-zebra-sticky.css */
+.markdown-preview-view table { border-collapse: collapse; }
+.markdown-preview-view th { position: sticky; top: 40px; background: var(--background-primary); z-index: 1; }
+.markdown-preview-view tr:nth-child(even) { background: var(--background-secondary); }
+.markdown-preview-view th, .markdown-preview-view td { padding: .4rem .6rem; }

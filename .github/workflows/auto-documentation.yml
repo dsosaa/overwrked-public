@@ -1,0 +1,142 @@
+name: Auto-Generate Project Documentation
+
+on:
+  repository_dispatch:
+    types: [generate-docs]
+  workflow_dispatch:
+    inputs:
+      repo_url:
+        description: 'Repository URL to document'
+        required: true
+        type: string
+      force_update:
+        description: 'Force update existing documentation'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  OBSIDIAN_VAULT_PATH: ${{ secrets.OBSIDIAN_VAULT_PATH }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+jobs:
+  generate-documentation:
+    runs-on: ubuntu-latest
+    name: Generate AI-Enhanced Documentation
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        repository: ${{ github.repository_owner }}/obsidian-vault
+        path: obsidian-vault
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Dependencies
+      run: |
+        pip install openai requests flask pathlib
+    
+    - name: Download Sync Scripts
+      run: |
+        curl -O https://raw.githubusercontent.com/${{ github.repository }}/main/Scripts/ai_enhanced_sync.py
+        chmod +x ai_enhanced_sync.py
+    
+    - name: Generate Documentation
+      run: |
+        python ai_enhanced_sync.py \
+          --github-token "${{ secrets.GITHUB_TOKEN }}" \
+          --openai-key "${{ secrets.OPENAI_API_KEY }}" \
+          --vault "./obsidian-vault" \
+          --repo "${{ github.event.inputs.repo_url || github.event.client_payload.repo_url }}"
+      env:
+        PYTHONPATH: .
+    
+    - name: Commit and Push Changes
+      run: |
+        cd obsidian-vault
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add all changes
+        git add .
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Auto-generated documentation for ${{ github.event.inputs.repo_url || github.event.client_payload.repo_url }}"
+          git push
+          echo "✅ Documentation updated and pushed"
+        fi
+    
+    - name: Create Summary
+      run: |
+        echo "## 🤖 AI-Enhanced Documentation Generated" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Repository**: ${{ github.event.inputs.repo_url || github.event.client_payload.repo_url }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Generated**: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Features:" >> $GITHUB_STEP_SUMMARY
+        echo "- 🧠 AI code analysis and insights" >> $GITHUB_STEP_SUMMARY
+        echo "- 📚 Automatic learning module suggestions" >> $GITHUB_STEP_SUMMARY
+        echo "- 🎯 Portfolio-ready documentation" >> $GITHUB_STEP_SUMMARY
+        echo "- 📊 Complexity and quality assessment" >> $GITHUB_STEP_SUMMARY
+
+  notify-completion:
+    needs: generate-documentation
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Notify Success
+      if: needs.generate-documentation.result == 'success'
+      run: |
+        echo "✅ Documentation generation completed successfully"
+        # Add webhook notification or Slack/Discord integration here
+    
+    - name: Notify Failure
+      if: needs.generate-documentation.result == 'failure'
+      run: |
+        echo "❌ Documentation generation failed"
+        # Add error notification here
+
+---
+
+# Alternative workflow for repository template setup
+name: Setup New Repository Documentation
+
+on:
+  create:
+    branches:
+      - main
+  repository_dispatch:
+    types: [setup-new-repo]
+
+jobs:
+  setup-repository:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'create' || github.event.action == 'setup-new-repo'
+    
+    steps:
+    - name: Wait for Repository Setup
+      run: sleep 30
+    
+    - name: Trigger Documentation Generation
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        repository: ${{ github.repository_owner }}/obsidian-vault
+        event-type: generate-docs
+        client-payload: |
+          {
+            "repo_url": "${{ github.event.repository.html_url }}",
+            "repo_name": "${{ github.event.repository.name }}",
+            "language": "${{ github.event.repository.language }}",
+            "description": "${{ github.event.repository.description }}"
+          } 

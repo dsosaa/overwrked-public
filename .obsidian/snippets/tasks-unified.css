@@ -1,0 +1,103 @@
+/* tasks-unified.css - Merged from checkboxes-accent.css, tasks-states.css, and tasks-enhanced.css */
+
+/* Checkbox styling variables */
+:root { 
+  --checkbox-accent: var(--interactive-accent, #4f46e5); 
+}
+
+/* Base checkbox styling */
+.markdown-preview-view input[type="checkbox"],
+.cm-content input[type="checkbox"] { 
+  accent-color: var(--checkbox-accent); 
+}
+
+/* Enhanced checkbox appearance */
+.markdown-preview-view .task-list-item-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--checkbox-border-color, var(--background-modifier-border));
+  border-radius: 3px;
+  background: var(--background-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1.05);
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked {
+  background-color: var(--checkbox-accent);
+  border-color: var(--checkbox-accent);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>');
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Completed tasks */
+.markdown-preview-view .task-list-item.is-checked,
+li.task-list-item[data-task="x"] { 
+  opacity: 0.6;
+  color: var(--text-muted); 
+  text-decoration: line-through;
+  text-decoration-color: var(--text-muted);
+}
+
+.markdown-preview-view .task-list-item.is-checked .task-list-item-checkbox {
+  opacity: 1; /* Keep checkbox visible */
+}
+
+/* Task priority states */
+li.task-list-item[data-task="!"],
+.task-list-item:has(.tag[href="#high"]) { 
+  border-left: 3px solid var(--color-red, #f59e0b); 
+  padding-left: 8px;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+li.task-list-item[data-task=">"],
+.task-list-item[data-task="/"] { 
+  border-left: 3px solid var(--color-blue, #06b6d4); 
+  padding-left: 8px;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.task-list-item:has(.tag[href="#medium"]),
+.task-list-item[data-task="?"] {
+  border-left: 3px solid var(--color-orange, #f59e0b);
+  padding-left: 8px;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.task-list-item:has(.tag[href="#low"]),
+.task-list-item[data-task="-"] {
+  border-left: 3px solid var(--color-green, #10b981);
+  padding-left: 8px;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+/* Progress indicator for partial completion */
+.task-list-item[data-task="/"] .task-list-item-checkbox {
+  background: linear-gradient(90deg, var(--checkbox-accent) 50%, transparent 50%);
+}
+
+/* Hover effects */
+.task-list-item:hover {
+  background: var(--background-modifier-hover);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+/* Overdue tasks (manual class) */
+.task-list-item.overdue {
+  border-left: 3px solid var(--color-red, #ef4444);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.task-list-item.overdue .task-list-item-checkbox {
+  border-color: var(--color-red, #ef4444);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

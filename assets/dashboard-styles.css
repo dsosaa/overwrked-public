@@ -1,0 +1,137 @@
+/* Dashboard-specific styles */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--md-accent-fg-color), transparent);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.1);
+  border-color: var(--md-accent-fg-color);
+}
+
+.stat-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-card strong {
+  font-size: 2rem;
+  color: var(--md-accent-fg-color);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Publishing workflow styles */
+.workflow-step {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.workflow-step::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--md-accent-fg-color);
+  color: var(--md-primary-fg-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Analytics section */
+.analytics-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.analytics-item:last-child {
+  border-bottom: none;
+}
+
+.analytics-metric {
+  font-weight: 600;
+  color: var(--md-accent-fg-color);
+}
+
+.analytics-trend {
+  font-size: 0.9em;
+  color: var(--md-default-fg-color--light);
+}
+
+.trend-up {
+  color: #10b981;
+}
+
+.trend-down {
+  color: #ef4444;
+}
+
+/* Content type tabs enhancement */
+.dashboard .tabbed-set {
+  margin: 2rem 0;
+}
+
+.dashboard .tabbed-content {
+  min-height: 200px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-card strong {
+    font-size: 1.5rem;
+  }
+  
+  .analytics-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

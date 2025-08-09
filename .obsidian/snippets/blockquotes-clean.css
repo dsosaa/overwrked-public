@@ -1,0 +1,9 @@
+/* blockquotes-clean.css */
+.markdown-preview-view blockquote {
+  border-left: 3px solid var(--interactive-accent);
+  padding-left: .9rem; 
+  color: var(--text-muted);
+  margin: 1em 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}

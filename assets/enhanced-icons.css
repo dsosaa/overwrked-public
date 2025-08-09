@@ -1,0 +1,331 @@
+/* ========== ENHANCED HEADER ICONS SYSTEM ========== */
+
+/* Professional icon styling for section headers */
+
+/* Header icon base styling */
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-right: 12px;
+  font-size: 16px;
+  background: linear-gradient(135deg, var(--icon-bg, #f3f4f6), var(--icon-bg-secondary, #e5e7eb));
+  color: var(--icon-color, #374151);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-md-color-scheme="slate"] .header-icon {
+  background: linear-gradient(135deg, var(--icon-bg, #374151), var(--icon-bg-secondary, #4b5563));
+  color: var(--icon-color, #d1d5db);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.header-icon:hover::before {
+  left: 100%;
+}
+
+.header-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-md-color-scheme="slate"] .header-icon:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced h2 headers with icons */
+.md-content h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1.5rem 0;
+  padding: 1rem 0;
+  border-bottom: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
+  border-radius: 8px;
+  padding-left: 1rem;
+  position: relative;
+}
+
+[data-md-color-scheme="slate"] .md-content h2 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+}
+
+.md-content h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--section-accent, var(--md-accent-fg-color));
+  border-radius: 2px;
+}
+
+/* Specific icon styles for different sections */
+
+/* Current Projects */
+.header-icon.projects {
+  --icon-bg: #dbeafe;
+  --icon-bg-secondary: #bfdbfe;
+  --icon-color: #1d4ed8;
+  --section-accent: #3b82f6;
+}
+
+[data-md-color-scheme="slate"] .header-icon.projects {
+  --icon-bg: #1e3a8a;
+  --icon-bg-secondary: #1e40af;
+  --icon-color: #93c5fd;
+}
+
+/* Project Categories */
+.header-icon.categories {
+  --icon-bg: #fef3c7;
+  --icon-bg-secondary: #fde68a;
+  --icon-color: #d97706;
+  --section-accent: #f59e0b;
+}
+
+[data-md-color-scheme="slate"] .header-icon.categories {
+  --icon-bg: #78350f;
+  --icon-bg-secondary: #92400e;
+  --icon-color: #fbbf24;
+}
+
+/* Technology sections */
+.header-icon.technology {
+  --icon-bg: #f3e8ff;
+  --icon-bg-secondary: #e9d5ff;
+  --icon-color: #7c3aed;
+  --section-accent: #8b5cf6;
+}
+
+[data-md-color-scheme="slate"] .header-icon.technology {
+  --icon-bg: #581c87;
+  --icon-bg-secondary: #6b21a8;
+  --icon-color: #c4b5fd;
+}
+
+/* Success metrics */
+.header-icon.metrics {
+  --icon-bg: #dcfce7;
+  --icon-bg-secondary: #bbf7d0;
+  --icon-color: #16a34a;
+  --section-accent: #22c55e;
+}
+
+[data-md-color-scheme="slate"] .header-icon.metrics {
+  --icon-bg: #14532d;
+  --icon-bg-secondary: #166534;
+  --icon-color: #86efac;
+}
+
+/* Implementation phases */
+.header-icon.phases {
+  --icon-bg: #fff7ed;
+  --icon-bg-secondary: #fed7aa;
+  --icon-color: #ea580c;
+  --section-accent: #f97316;
+}
+
+[data-md-color-scheme="slate"] .header-icon.phases {
+  --icon-bg: #7c2d12;
+  --icon-bg-secondary: #9a3412;
+  --icon-color: #fdba74;
+}
+
+/* Architecture */
+.header-icon.architecture {
+  --icon-bg: #f0fdf4;
+  --icon-bg-secondary: #dcfce7;
+  --icon-color: #15803d;
+  --section-accent: #16a34a;
+}
+
+[data-md-color-scheme="slate"] .header-icon.architecture {
+  --icon-bg: #14532d;
+  --icon-bg-secondary: #166534;
+  --icon-color: #86efac;
+}
+
+/* Links and references */
+.header-icon.links {
+  --icon-bg: #ede9fe;
+  --icon-bg-secondary: #ddd6fe;
+  --icon-color: #7c3aed;
+  --section-accent: #8b5cf6;
+}
+
+[data-md-color-scheme="slate"] .header-icon.links {
+  --icon-bg: #581c87;
+  --icon-bg-secondary: #6b21a8;
+  --icon-color: #c4b5fd;
+}
+
+/* Enhanced h3 headers */
+.md-content h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--md-default-fg-color);
+}
+
+.md-content h3 .header-icon {
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* Icon animations and interactions */
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.header-icon.animate {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .header-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  
+  .md-content h2 {
+    font-size: 1.3rem;
+    padding-left: 0.75rem;
+  }
+  
+  .md-content h3 .header-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+}
+
+/* Special icon effects for interactive elements */
+.header-icon.interactive {
+  cursor: pointer;
+}
+
+.header-icon.interactive:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header-icon.interactive:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Icon badge system for status indicators */
+.header-icon.with-badge {
+  position: relative;
+}
+
+.header-icon.with-badge::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-md-color-scheme="slate"] .header-icon.with-badge::after {
+  border-color: #0d1117;
+}
+
+.header-icon.with-badge.warning::after {
+  background: #f59e0b;
+}
+
+.header-icon.with-badge.error::after {
+  background: #ef4444;
+}
+
+.header-icon.with-badge.info::after {
+  background: #3b82f6;
+}
+
+/* Improved spacing for headers */
+.md-content h2 + * {
+  margin-top: 1rem;
+}
+
+.md-content h3 + * {
+  margin-top: 0.75rem;
+}
+
+/* Enhanced visual hierarchy */
+.section-divider {
+  margin: 3rem 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--md-default-fg-color--lightest), transparent);
+  opacity: 0.5;
+}
+
+/* Header hover effects */
+.md-content h2:hover .header-icon,
+.md-content h3:hover .header-icon {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.md-content h2:hover::before {
+  background: linear-gradient(135deg, var(--section-accent), transparent);
+}
+
+/* Icon loading state */
+.header-icon.loading {
+  animation: iconPulse 1s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* Material Design icon integration */
+.header-icon .material-symbols-outlined,
+.header-icon .material-icons {
+  font-size: inherit;
+  width: auto;
+  height: auto;
+}
+
+/* Octicons integration */
+.header-icon .octicon {
+  font-size: inherit;
+  width: auto;
+  height: auto;
+}

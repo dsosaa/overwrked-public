@@ -1,0 +1,92 @@
+{
+  "timestamp": "2025-08-09T23:24:36.049Z",
+  "url": "https://dsosaa.github.io/overwrked-public/",
+  "scores": {
+    "performance": {
+      "loadTime": 1964,
+      "scriptCount": 11,
+      "rating": "excellent"
+    }
+  },
+  "issues": [
+    {
+      "severity": "low",
+      "category": "visual-consistency",
+      "issue": "Too many font size variations",
+      "location": "Typography system",
+      "suggestion": "Standardize to 4-6 font sizes for better consistency"
+    },
+    {
+      "severity": "low",
+      "category": "navigation",
+      "issue": "Missing breadcrumb navigation",
+      "location": "Projects page header",
+      "suggestion": "Add breadcrumb navigation for better user orientation"
+    },
+    {
+      "severity": "high",
+      "category": "mobile-usability",
+      "issue": "Text too small on mobile devices",
+      "location": "iPhone 12 Pro viewport",
+      "suggestion": "Ensure minimum 14px font size for mobile readability"
+    },
+    {
+      "severity": "medium",
+      "category": "mobile-usability",
+      "issue": "Touch targets too small for mobile",
+      "location": "iPhone 12 Pro viewport",
+      "suggestion": "Ensure minimum 44px touch target size for mobile buttons"
+    },
+    {
+      "severity": "high",
+      "category": "mobile-usability",
+      "issue": "Text too small on mobile devices",
+      "location": "Android Small viewport",
+      "suggestion": "Ensure minimum 14px font size for mobile readability"
+    },
+    {
+      "severity": "medium",
+      "category": "mobile-usability",
+      "issue": "Touch targets too small for mobile",
+      "location": "Android Small viewport",
+      "suggestion": "Ensure minimum 44px touch target size for mobile buttons"
+    },
+    {
+      "severity": "high",
+      "category": "mobile-usability",
+      "issue": "Text too small on mobile devices",
+      "location": "iPad viewport",
+      "suggestion": "Ensure minimum 14px font size for mobile readability"
+    },
+    {
+      "severity": "medium",
+      "category": "mobile-usability",
+      "issue": "Touch targets too small for mobile",
+      "location": "iPad viewport",
+      "suggestion": "Ensure minimum 44px touch target size for mobile buttons"
+    },
+    {
+      "severity": "medium",
+      "category": "accessibility",
+      "issue": "Heading hierarchy skips levels",
+      "location": "Heading: \"📋 Note Properties...\"",
+      "suggestion": "Maintain proper heading hierarchy (h1→h2→h3, etc.)"
+    },
+    {
+      "severity": "low",
+      "category": "performance",
+      "issue": "11 external scripts may block rendering",
+      "location": "Page head/body",
+      "suggestion": "Bundle scripts, use async/defer attributes, or lazy load non-critical scripts"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "medium",
+      "category": "user-experience",
+      "recommendation": "Enhance empty state with actionable guidance",
+      "implementation": "Add sample content, getting started guide, or demo notes"
+    }
+  ],
+  "screenshots": []
+}

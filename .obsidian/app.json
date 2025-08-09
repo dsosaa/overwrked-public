@@ -1,0 +1,18 @@
+{
+  "cssSnippets": [
+    "blockquotes-clean",
+    "callouts-compact",
+    "code-blocks-unified",
+    "file-explorer-unified",
+    "frontmatter-compact",
+    "headings-rhythm",
+    "images-clean",
+    "inter-notes",
+    "links-unified",
+    "readable-width",
+    "scrollbars-thin",
+    "tables-zebra-sticky",
+    "tags-chips",
+    "tasks-unified"
+  ]
+}

@@ -1,0 +1,71 @@
+name: Mirror Public notes to overwrked-public
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Public/**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout private vault repo
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Start SSH agent for public repo
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PUBLIC_REPO_SSH_KEY }}
+
+      - name: Add github.com to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Clone public site repo via SSH
+        run: |
+          git clone git@github.com:dsosaa/overwrked-public.git public-repo
+
+      - name: Ensure docs folder exists in public repo
+        run: |
+          mkdir -p public-repo/docs
+
+      - name: Sync Public/ -> public-repo/docs/
+        run: |
+          rsync -av --delete --exclude '.DS_Store' src/Public/ public-repo/docs/
+
+      - name: Add mkdocs scaffold if missing
+        run: |
+          if [ ! -f public-repo/mkdocs.yml ]; then
+            cat > public-repo/mkdocs.yml <<'EOF'
+            site_name: Overwrked Notes
+            site_url: https://dsosaa.github.io/overwrked-public
+            repo_url: https://github.com/dsosaa/overwrked-public
+            theme:
+              name: material
+            plugins:
+              - search
+            nav:
+              - Home: docs/Hello from Publisher.md
+            EOF
+          fi
+
+      - name: Commit and push to public repo
+        run: |
+          cd public-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: mirror from overwrked Public/"
+            git push origin HEAD:main
+          fi
+
+

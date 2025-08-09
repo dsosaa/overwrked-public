@@ -1,0 +1,5 @@
+/* headings-rhythm.css */
+:root { --h-spacing: 0.6em; }
+h1, h2, h3, h4, h5, h6 { scroll-margin-top: 72px; }
+h1{margin:1.1em 0 var(--h-spacing);} h2{margin:1em 0 var(--h-spacing);} 
+h3{margin:.9em 0 calc(var(--h-spacing)*.9);} h4,h5,h6{margin:.8em 0 .5em;}

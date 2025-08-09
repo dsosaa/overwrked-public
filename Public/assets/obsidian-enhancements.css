@@ -1,0 +1,326 @@
+/* Obsidian-specific enhancements for published notes */
+
+/* ========== OBSIDIAN-STYLE FEATURES ========== */
+
+/* Wikilink styling */
+.md-typeset a[href*="/"]:not([href^="http"]):not([href^="mailto"]) {
+  color: var(--md-accent-fg-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--md-accent-fg-color);
+  transition: all 0.2s ease;
+}
+
+.md-typeset a[href*="/"]:not([href^="http"]):not([href^="mailto"]):hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid var(--md-accent-fg-color);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+/* Obsidian-style tags */
+.md-typeset .tag,
+.md-typeset code[class*="language-tag"] {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--md-accent-fg-color);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+.md-typeset .tag:hover {
+  background: rgba(0, 212, 255, 0.25);
+  border-color: var(--md-accent-fg-color);
+  transform: scale(1.05);
+}
+
+/* Obsidian-style block references */
+.block-ref {
+  background: var(--md-code-bg-color);
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Property/frontmatter styling */
+.frontmatter-container {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0 2rem 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+}
+
+.frontmatter-container .property {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.frontmatter-container .property:last-child {
+  border-bottom: none;
+}
+
+.frontmatter-container .property-key {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+
+.frontmatter-container .property-value {
+  color: var(--md-default-fg-color--light);
+}
+
+/* Obsidian-style graph view placeholder */
+.graph-view {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.graph-view::before {
+  content: "🕸️";
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.graph-view-placeholder {
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+}
+
+/* Daily notes styling */
+.daily-note {
+  position: relative;
+}
+
+.daily-note::before {
+  content: "📅";
+  position: absolute;
+  top: 0;
+  left: -30px;
+  font-size: 1.2em;
+}
+
+/* Task styling (enhanced checkboxes) */
+.md-typeset .task-list-item {
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 2rem;
+}
+
+.md-typeset .task-list-item input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0;
+  accent-color: var(--md-accent-fg-color);
+}
+
+.md-typeset .task-list-item input[type="checkbox"]:checked + * {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Obsidian-style callouts enhancement */
+.md-typeset .admonition.note {
+  border-left-color: #3b82f6;
+}
+
+.md-typeset .admonition.tip {
+  border-left-color: #10b981;
+}
+
+.md-typeset .admonition.warning {
+  border-left-color: #f59e0b;
+}
+
+.md-typeset .admonition.danger {
+  border-left-color: #ef4444;
+}
+
+/* Backlink panel styling */
+.backlinks-panel {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.backlinks-panel h3 {
+  color: var(--md-accent-fg-color);
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.backlinks-panel h3::before {
+  content: "🔗";
+}
+
+.backlink-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.backlink-item:last-child {
+  border-bottom: none;
+}
+
+.backlink-title {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.backlink-context {
+  font-size: 0.9em;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.25rem;
+}
+
+/* ========== KNOWLEDGE GRAPH STYLING ========== */
+
+.knowledge-graph {
+  background: var(--md-default-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 0;
+  min-height: 400px;
+}
+
+.knowledge-graph h3 {
+  color: var(--md-accent-fg-color);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.knowledge-graph h3::before {
+  content: "🌐";
+}
+
+/* Node connections visualization */
+.graph-connections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.connection-node {
+  background: var(--md-code-bg-color);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.connection-node:hover {
+  border-color: var(--md-accent-fg-color);
+  background: rgba(0, 212, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.connection-node .node-title {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.25rem;
+}
+
+.connection-node .node-type {
+  font-size: 0.8em;
+  color: var(--md-default-fg-color--light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== RECENT CHANGES PANEL ========== */
+
+.recent-changes {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.recent-changes h3 {
+  color: var(--md-accent-fg-color);
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recent-changes h3::before {
+  content: "🕒";
+}
+
+.change-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.change-item:last-child {
+  border-bottom: none;
+}
+
+.change-title {
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+
+.change-date {
+  font-size: 0.85em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ========== RESPONSIVE OBSIDIAN FEATURES ========== */
+
+@media screen and (max-width: 768px) {
+  .graph-connections {
+    grid-template-columns: 1fr;
+  }
+  
+  .frontmatter-container .property {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .change-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "cssTheme": "Atom",
+  "enabledCssSnippets": [
+    "blockquote-clean",
+    "callouts-compact",
+    "checkboxes-accent",
+    "code-blocks-clean",
+    "frontmatter-compact",
+    "headings-rhythm",
+    "images-clean",
+    "inter-notes",
+    "links-tidy",
+    "readable-width",
+    "scrollbars-thin",
+    "tables-zebra-sticky",
+    "tags-chips"
+  ]
+}

@@ -1,0 +1,53 @@
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python / Node
+__pycache__/
+.pytest_cache/
+.python-version
+venv/
+.venv/
+node_modules/
+
+# Env files
+.env
+.env.*
+
+# Obsidian runtime files and caches (keep plugin code, ignore state/secrets)
+.obsidian/cache/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/appearance.json
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/cache.json
+.obsidian/plugins/*/env
+.obsidian/plugins/obsidian-mkdocs-publisher/env
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/digitalgarden/data.json
+.obsidian/starred.json
+
+# Obsidian trash
+.trash/
+
+# Sensitive notes and secrets – do NOT sync
+Passwords/
+**/Passwords/**
+**/API keys.md
+.reset-backups/
+.github/overwrked_public_deploy_key
+*.pem
+*.key
+
+# Temporary and build files
+.tmp-overwrked-public/
+site/
+
+# Optional: add more files or folders you don't want synced below
+# Notes/Drafts/
+# Attachments/Private/
+
+

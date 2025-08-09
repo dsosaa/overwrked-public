@@ -1,0 +1,68 @@
+/* code-blocks-unified.css - Merged from code-blocks-clean.css and code-blocks-enhanced.css */
+
+/* Base code styling */
+pre, code, tt { 
+  background: var(--background-secondary); 
+  font-family: var(--font-monospace, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace);
+}
+
+/* Code blocks */
+pre { 
+  padding: .75rem .9rem; 
+  border-radius: 8px; 
+  overflow: auto;
+  position: relative;
+}
+
+/* Inline code */
+.markdown-preview-view code {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.9em;
+  white-space: break-spaces;
+}
+
+/* Editor content */
+.cm-content { word-wrap: break-word; }
+
+/* Language labels for code blocks */
+.markdown-preview-view pre[class*="language-"]::before {
+  content: attr(class);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--background-primary);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* Specific language indicators */
+.markdown-preview-view pre.language-python::before { content: "Python"; color: #3776ab; }
+.markdown-preview-view pre.language-javascript::before { content: "JavaScript"; color: #f7df1e; }
+.markdown-preview-view pre.language-css::before { content: "CSS"; color: #1572b6; }
+.markdown-preview-view pre.language-html::before { content: "HTML"; color: #e34f26; }
+.markdown-preview-view pre.language-json::before { content: "JSON"; color: #666; }
+.markdown-preview-view pre.language-yaml::before { content: "YAML"; color: #cb171e; }
+.markdown-preview-view pre.language-bash::before { content: "Bash"; color: #4eaa25; }
+.markdown-preview-view pre.language-sql::before { content: "SQL"; color: #336791; }
+
+/* Code block copy button enhancement */
+.copy-code-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: var(--interactive-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.markdown-preview-view pre:hover .copy-code-button {
+  opacity: 1;
+}

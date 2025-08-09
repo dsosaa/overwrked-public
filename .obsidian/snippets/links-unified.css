@@ -1,0 +1,55 @@
+/* links-unified.css - Merged from links-tidy.css and external-links-enhanced.css */
+
+/* Base link styling */
+.markdown-preview-view a { 
+  text-decoration: none; 
+  border-bottom: 1px solid transparent; 
+}
+
+.markdown-preview-view a:hover { 
+  border-bottom-color: currentColor; 
+}
+
+/* External links */
+.external-link {
+  padding-right: .15em;
+  border-bottom: 1px solid var(--link-color, var(--text-accent));
+}
+
+.external-link::after {
+  content: " 🔗";
+  font-size: 0.75em;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+/* Internal links */
+.internal-link {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color, var(--interactive-accent));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.internal-link:hover {
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--accent-color-hover, var(--interactive-accent));
+}
+
+/* Unresolved links */
+.internal-link.is-unresolved {
+  opacity: 0.7;
+  text-decoration-style: dashed;
+}
+
+/* Wiki-style link brackets fade */
+.cm-formatting-link {
+  opacity: 0.3;
+}
+
+/* Link previews */
+.popover.hover-popover {
+  max-width: 600px; /* Balanced between 500px and 720px */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  border: 1px solid var(--background-modifier-border);
+}
