@@ -1,0 +1,370 @@
+/* Premium Design Elements */
+
+/* ========== INTERACTIVE FILE TREE ========== */
+
+.file-tree {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-tree::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--md-accent-fg-color), #8b5cf6, var(--md-accent-fg-color));
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.file-tree pre {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: var(--md-default-fg-color);
+}
+
+.file-tree code {
+  background: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+}
+
+/* File tree hover effects */
+.file-tree:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ========== PREMIUM FOLDER CARDS ========== */
+
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.folder-card {
+  background: linear-gradient(135deg, var(--md-code-bg-color) 0%, rgba(22, 27, 34, 0.8) 100%);
+  border: 1px solid #21262d;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.folder-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.folder-card:hover::before {
+  opacity: 1;
+}
+
+.folder-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.folder-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--md-accent-fg-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.folder-card p {
+  color: var(--md-default-fg-color--light);
+  margin: 0.5rem 0 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.folder-card .md-button {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--md-accent-fg-color);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.folder-card .md-button:hover {
+  background: var(--md-accent-fg-color);
+  color: var(--md-primary-fg-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+/* ========== ACTIVITY LIST ========== */
+
+.activity-list {
+  background: var(--md-code-bg-color);
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.activity-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.95rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.activity-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0.5rem;
+  color: var(--md-accent-fg-color);
+  font-weight: bold;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.activity-list strong {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+}
+
+/* ========== ACTION BUTTONS ========== */
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.action-buttons .md-button {
+  flex: 1;
+  min-width: 160px;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-buttons .md-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.action-buttons .md-button:hover::before {
+  left: 100%;
+}
+
+.action-buttons .md-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+}
+
+/* ========== GLASSMORPHISM EFFECTS ========== */
+
+.glass-panel {
+  background: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--md-accent-fg-color), transparent);
+}
+
+/* ========== ANIMATED GRADIENTS ========== */
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--md-accent-fg-color), #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-animation 3s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ========== MICRO-INTERACTIONS ========== */
+
+.micro-bounce {
+  animation: micro-bounce 0.6s ease-in-out;
+}
+
+@keyframes micro-bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ========== FLOATING ELEMENTS ========== */
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ========== ENHANCED TOOLTIPS ========== */
+
+.premium-tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.premium-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--md-accent-fg-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.premium-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+@media screen and (max-width: 768px) {
+  .folder-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .folder-card {
+    padding: 1.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons .md-button {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .file-tree {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== DARK MODE ENHANCEMENTS ========== */
+
+[data-md-color-scheme="slate"] {
+  --glass-bg: rgba(13, 17, 23, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --premium-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+
+.folder-card,
+.file-tree,
+.activity-list {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.folder-card:hover {
+  will-change: transform;
+}
