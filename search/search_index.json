@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Overwrked Public","text":"<p>Welcome to the public notes site.</p> <p>This site is published from the <code>Public/</code> folder in the private vault via Enveloppe.</p>"}]}
