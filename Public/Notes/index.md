@@ -12,15 +12,12 @@ A collection of development insights, technical guides, and knowledge documentat
 
 ---
 
-## 📋 Available Content
+## 📋 Available Notes
 
-<div class="empty-state" markdown>
+<div class="notes-list" markdown>
 
-<div class="empty-icon">📝</div>
-
-**No notes published yet**
-
-This section is ready for technical notes, development guides, and insights. Content will appear here automatically when published.
+- [ChatBot Telegram](ChatBot_Telegram.md) - Telegram bot development guide
+- [Hello from Publisher](Hello%20from%20Publisher.md) - Initial publishing test
 
 </div>
 
