@@ -11,8 +11,13 @@ copyright: Copyright &copy; 2025 overwrked.ai - Built with Material for MkDocs
 
 nav:
   - Home: index.md
-  - Notes: Notes/
-  - Projects: Projects/
+  - Notes:
+    - Notes/index.md
+    - ChatBot Telegram: Notes/ChatBot_Telegram.md
+    - Hello from Publisher: Notes/Hello from Publisher.md
+  - Projects:
+    - Projects/index.md
+    - Project Blueprint: Projects/project-blueprint.md
   - Features: features.md
 
 theme:
