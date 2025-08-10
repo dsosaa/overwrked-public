@@ -268,6 +268,7 @@ markdown_extensions:
       toc_depth: 3
 
 extra_css:
+  - assets/notes-admonitions.css  # Universal Note styling - loads first for all pages
   - assets/cursor-theme.css
   - assets/enhanced-visuals.css
   - assets/homepage-enhancements.css
@@ -280,7 +281,7 @@ extra_css:
   - assets/enhanced-icons.css
   - assets/obsidian-native-editor.css
   - assets/features-page.css
-  - assets/ai-copilot.css
+  - assets/ai-copilot-enhanced.css
   - https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200
 
 extra_javascript:
@@ -292,4 +293,4 @@ extra_javascript:
   - assets/advanced-features.js
   - assets/obsidian-native-editor.js
   - assets/real-api-integration.js
-  - assets/ai-copilot.js
+  - assets/ai-copilot-enhanced.js
