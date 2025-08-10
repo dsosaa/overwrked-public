@@ -10,6 +10,10 @@ docs_dir: Public
 copyright: Copyright &copy; 2025 overwrked.ai - Built with Material for MkDocs
 
 nav:
+  - Home: index.md
+  - Notes: Notes/
+  - Projects: Projects/
+  - Features: features.md
 
 theme:
   name: material
